@@ -11,6 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import com.juaracoding.ujianm6.config.AutomationFrameworkConfig;
 import com.juaracoding.ujianm6.drivers.DriverSingleton;
 import com.juaracoding.ujianm6.pages.CheckoutBySearch;
+import com.juaracoding.ujianm6.pages.CompareProduct;
 import com.juaracoding.ujianm6.pages.Login;
 import com.juaracoding.ujianm6.utlis.ConfigurationProperties;
 import com.juaracoding.ujianm6.utlis.Constants;
@@ -19,6 +20,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -31,7 +33,7 @@ public class StepDefinition {
 	private WebDriver driver;
 	private Login login;
 	private CheckoutBySearch checkoutBySearch;
-	
+	private CompareProduct compareProduct;
 	@Autowired
 	ConfigurationProperties configurationProperties;
 	
@@ -39,8 +41,8 @@ public class StepDefinition {
 	public void initializeObjects() {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
 		login = new Login();
-		checkoutBySearch = new CheckoutBySearch();
-	
+		//checkoutBySearch = new CheckoutBySearch();
+		compareProduct  = new CompareProduct();
 		
 	}
 	
@@ -79,6 +81,23 @@ public class StepDefinition {
 		assertEquals(configurationProperties.getTxtThankYou(), checkoutBySearch.getTxtThankYou());
 	}
 	
+	@When("Customer klik menu dashboard shop demoqa")
+		public void Customer_klik_menu_dashboard_shop_demoqa() {
+	tunggu();
+		compareProduct.Order(configurationProperties.getDas(), configurationProperties.getCol1(), configurationProperties.getSiz1(), configurationProperties.getCol2(), configurationProperties.getSiz2());	
+		}
+	
+	@And("Customer memilih product")
+	public void Customer_memilih_product() {
+		tunggu();
+		compareProduct.submitSearch(configurationProperties.getFn(), configurationProperties.getLn(), configurationProperties.getComp(), configurationProperties.getCoun(), configurationProperties.getAdd1(), configurationProperties.getAdd2(), configurationProperties.getCit(), configurationProperties.getStat(), configurationProperties.getCod(), configurationProperties.getPhon(), configurationProperties.getEm(), configurationProperties.getComm());
+	}
+	
+	@Then("Customer berhasil membeli product")
+	public void customer_berhasil_membeli_product() {
+		tunggu();
+		assertEquals(configurationProperties.getTxtThankYou2(), compareProduct.getTxtThankYou2());
+	}
 	
 	public static void tunggu() {
 		try {

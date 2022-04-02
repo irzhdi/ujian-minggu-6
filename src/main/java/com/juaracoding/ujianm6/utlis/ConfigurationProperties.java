@@ -53,6 +53,60 @@ public class ConfigurationProperties {
 	@Value("${txtThankYou}")
 	private String txtThankYou;
 	
+	@Value("${das}")
+	private int das;
+	
+	@Value("${col1}")
+	private int col1;
+	
+	@Value("${siz1}")
+	private int siz1;
+	
+	@Value("${col2}")
+	private int col2;
+	
+	@Value("${siz2}")
+	private int siz2;
+	
+	@Value("${fn}")
+	private String fn;
+	
+	@Value("${ln}")
+	private String ln;
+	
+	@Value("${comp}")
+	private String comp;
+	
+	@Value("${coun}")
+	private String coun;
+	
+	@Value("${add1}")
+	private String add1;
+	
+	@Value("${add2}")
+	private String add2;
+	
+	@Value("${cit}")
+	private String cit;
+	
+	@Value("${stat}")
+	private String stat;
+	
+	@Value("${cod}")
+	private String cod;
+	
+	@Value("${phon}")
+	private String phon;
+	
+	@Value("${em}")
+	private String em;
+	
+	@Value("${comm}")
+	private String comm;
+	
+	@Value("${txtThankYou}")
+	private String txtThankYou2;
+	
 //=====================================================
 	
 	public String getBrowser() {
@@ -102,5 +156,149 @@ public class ConfigurationProperties {
 	}
 	public String getTxtThankYou() {
 		return txtThankYou;
+	}
+	
+	public int getDas() {
+		return das;
+	}
+
+	public void setDas(int das) {
+		this.das = das;
+	}
+
+	public int getCol1() {
+		return col1;
+	}
+
+	public void setCol1(int col1) {
+		this.col1 = col1;
+	}
+	
+	public int getSiz1() {
+		return siz1;
+	}
+
+	public void setSiz1(int siz1) {
+		this.siz1 = siz1;
+	}
+	
+	public int getCol2() {
+		return col2;
+	}
+
+	public void setCol2(int col2) {
+		this.col2 = col2;
+	}
+	
+	public int getSiz2() {
+		return siz2;
+	}
+
+	public void setSiz2(int siz2) {
+		this.siz2 = siz2;
+	}
+	
+	public String getFn() {
+		return fn;
+	}
+
+	public void setFn(String fn) {
+		this.fn = fn;
+	}
+	
+	public String getLn() {
+		return ln;
+	}
+
+	public void setLn(String ln) {
+		this.ln = ln;
+	}
+	
+	public String getComp() {
+		return comp;
+	}
+
+	public void setComp(String com) {
+		this.comp = comp;
+	}
+	
+	public String getCoun() {
+		return coun;
+	}
+
+	public void setCoun(String coun) {
+		this.coun = coun;
+	}
+	
+	public String getAdd1() {
+		return add1;
+	}
+
+	public void setAdd1(String add1) {
+		this.add1 = add1;
+	}
+	
+	public String getAdd2() {
+		return add2;
+	}
+
+	public void setAdd2(String add2) {
+		this.add2 = add2;
+	}
+	
+	public String getCit() {
+		return cit;
+	}
+
+	public void setCit(String cit) {
+		this.cit = cit;
+	}
+	
+	public String getStat() {
+		return stat;
+	}
+
+	public void setStat(String stat) {
+		this.stat = stat;
+	}
+	
+	public String getCod() {
+		return cod;
+	}
+
+	public void setCod(String cod) {
+		this.cod = cod;
+	}
+	
+	public String getPhon() {
+		return phon;
+	}
+
+	public void setPhon(String phon) {
+		this.phon = phon;
+	}
+	
+	public String getEm() {
+		return em;
+	}
+
+	public void setEm(String em) {
+		this.em = em;
+	}
+	
+	public String getComm() {
+		return comm;
+	}
+
+	public void setComm(String comm) {
+		this.comm = comm;
+	}
+	
+	public String getTxtThankYou2() {
+		return txtThankYou;
+	}
+	
+	public void setTxtThankYou2() {
+		this.txtThankYou2 = txtThankYou2; 
 	}
 }

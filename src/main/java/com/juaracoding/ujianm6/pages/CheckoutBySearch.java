@@ -136,6 +136,7 @@ private WebDriver driver;
 	public String getTxtThankYou() {
 		return txtThankYou.getText();
 	}
+	
 	public static void tunggu() {
 		try {
 			Thread.sleep(500);
