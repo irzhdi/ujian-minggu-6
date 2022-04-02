@@ -48,7 +48,6 @@ public class StepDefinition {
 	
 	@AfterClass
 	public void closeBrowser() {
-		tunggu();
 		driver.quit();
 	}
 	
