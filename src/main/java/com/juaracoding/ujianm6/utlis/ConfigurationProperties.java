@@ -20,6 +20,38 @@ public class ConfigurationProperties {
 	@Value("${txtNamaUser}")
 	private String txtNamaUser;
 	
+	@Value("${search}")
+	private String search;
+	
+	@Value("${first_name}")
+	private String first_name;
+	
+	@Value("${last_name}")
+	private String last_name;
+	
+	@Value("${company}")
+	private String company;
+	
+	@Value("${address_1}")
+	private String address_1;
+	
+	@Value("${address_2}")
+	private String address_2;
+	
+	@Value("${city}")
+	private String city;
+	
+	@Value("${postcode}")
+	private String postcode;
+	
+	@Value("${phone}")
+	private String phone;
+	
+	@Value("${comments}")
+	private String comments;
+	
+	@Value("${txtThankYou}")
+	private String txtThankYou;
 	
 //=====================================================
 	
@@ -38,6 +70,37 @@ public class ConfigurationProperties {
 	public String getTxtNamaUser() {
 		return txtNamaUser;
 	}
-	
-	
+	public String getSearch() {
+		return search;
+	}
+	public String getFirst_name() {
+		return first_name;
+	}
+	public String getLast_name() {
+		return last_name;
+	}
+	public String getCompany() {
+		return company;
+	}
+	public String getAddress_1() {
+		return address_1;
+	}
+	public String getAddress_2() {
+		return address_2;
+	}
+	public String getCity() {
+		return city;
+	}
+	public String getPostcode() {
+		return postcode;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public String getComments() {
+		return comments;
+	}
+	public String getTxtThankYou() {
+		return txtThankYou;
+	}
 }
