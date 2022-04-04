@@ -71,28 +71,29 @@ public class StepDefinition {
 	}
 	
 	@When("Customer search product")
-	public void customer_search_product() {
+	public void Customer_search_product() {
+		tunggu();
 		checkoutBySearch.submitSearch();
 	}
 	
 	@Then("Customer berhasil checkout")
-	public void customer_berhasil_checkout() {
+	public void Customer_berhasil_checkout() {
 		tunggu();
 		assertEquals(configurationProperties.getTxtThankYou(), checkoutBySearch.getTxtThankYou());
 	}
 	
 	@When("Customer klik menu dashboard")
-	public void customer_klik_menu_dashboard() {
+	public void Customer_klik_menu_dashboard() {
 		compareProduct.Order(configurationProperties.getDas(), configurationProperties.getCol1(), configurationProperties.getSiz1(), configurationProperties.getCol2(), configurationProperties.getSiz2());	
 		}
 	
 	@And("Customer memilih product")
-	public void customer_memilih_product() {
+	public void Customer_memilih_product() {
 		compareProduct.submitOrder(configurationProperties.getFn(), configurationProperties.getLn(), configurationProperties.getComp(), configurationProperties.getCoun(), configurationProperties.getAdd1(), configurationProperties.getAdd2(), configurationProperties.getCit(), configurationProperties.getStat(), configurationProperties.getCod(), configurationProperties.getPhon(), configurationProperties.getEm(), configurationProperties.getComm());
 	}
 	
 	@Then("Customer berhasil membeli product")
-	public void customer_berhasil_membeli_product() {
+	public void Customer_berhasil_membeli_product() {
 		assertEquals(configurationProperties.getTxtThankYou2(), compareProduct.getTxtThankYou2());
 	}
 	
