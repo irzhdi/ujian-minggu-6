@@ -34,6 +34,7 @@ public class StepDefinition {
 	private Login login;
 	private CheckoutBySearch checkoutBySearch;
 	private CompareProduct compareProduct;
+	
 	@Autowired
 	ConfigurationProperties configurationProperties;
 	
@@ -41,7 +42,7 @@ public class StepDefinition {
 	public void initializeObjects() {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
 		login = new Login();
-		//checkoutBySearch = new CheckoutBySearch();
+		checkoutBySearch = new CheckoutBySearch();
 		compareProduct  = new CompareProduct();
 		
 	}
@@ -64,37 +65,34 @@ public class StepDefinition {
 	
 	@Then("Customer berhasil login")
 	public void customer_berhasil_login() {
-	
 		driver.navigate().refresh();
 		tunggu();
 		assertEquals(configurationProperties.getTxtNamaUser(), login.getTxtNamaUser());
 	}
+	
 	@When("Customer search product")
 	public void customer_search_product() {
 		checkoutBySearch.submitSearch();
-		
 	}
+	
 	@Then("Customer berhasil checkout")
 	public void customer_berhasil_checkout() {
 		tunggu();
 		assertEquals(configurationProperties.getTxtThankYou(), checkoutBySearch.getTxtThankYou());
 	}
 	
-	@When("Customer klik menu dashboard shop demoqa")
-		public void Customer_klik_menu_dashboard_shop_demoqa() {
-	tunggu();
+	@When("Customer klik menu dashboard")
+	public void customer_klik_menu_dashboard() {
 		compareProduct.Order(configurationProperties.getDas(), configurationProperties.getCol1(), configurationProperties.getSiz1(), configurationProperties.getCol2(), configurationProperties.getSiz2());	
 		}
 	
 	@And("Customer memilih product")
-	public void Customer_memilih_product() {
-		tunggu();
-		compareProduct.submitSearch(configurationProperties.getFn(), configurationProperties.getLn(), configurationProperties.getComp(), configurationProperties.getCoun(), configurationProperties.getAdd1(), configurationProperties.getAdd2(), configurationProperties.getCit(), configurationProperties.getStat(), configurationProperties.getCod(), configurationProperties.getPhon(), configurationProperties.getEm(), configurationProperties.getComm());
+	public void customer_memilih_product() {
+		compareProduct.submitOrder(configurationProperties.getFn(), configurationProperties.getLn(), configurationProperties.getComp(), configurationProperties.getCoun(), configurationProperties.getAdd1(), configurationProperties.getAdd2(), configurationProperties.getCit(), configurationProperties.getStat(), configurationProperties.getCod(), configurationProperties.getPhon(), configurationProperties.getEm(), configurationProperties.getComm());
 	}
 	
 	@Then("Customer berhasil membeli product")
 	public void customer_berhasil_membeli_product() {
-		tunggu();
 		assertEquals(configurationProperties.getTxtThankYou2(), compareProduct.getTxtThankYou2());
 	}
 	

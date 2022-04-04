@@ -16,8 +16,8 @@ import com.juaracoding.ujianm6.drivers.DriverSingleton;
 
 public class CompareProduct {
 
-	private WebDriver driver;
-	
+private WebDriver driver;
+
 	public CompareProduct() {
 		this.driver = DriverSingleton.getDriver();
 		PageFactory.initElements(driver, this);
@@ -129,11 +129,11 @@ public class CompareProduct {
 	WebElement txtThankYou2;
 	
 	public void Order(int das, int col1, int siz1, int col2, int siz2) {
-	
+		JavascriptExecutor je = (JavascriptExecutor) driver;
+		je.executeScript("window.scrollBy(0, 1000)");
 		Dashboard.get(das).click();
 		Browse.click();
 	tunggu();
-	JavascriptExecutor je = (JavascriptExecutor) driver;
 	je.executeScript("window.scrollBy(0, 1000)");
 	Product2.click();
 	je.executeScript("window.scrollBy(0, 1000)");
@@ -193,7 +193,7 @@ public class CompareProduct {
 	
 	}
 	
-	public void submitSearch(String fn, String ln, String comp, String coun, String add1, String add2, String cit, String stat, String cod, String phon, String em, String comm) {
+	public void submitOrder(String fn, String ln, String comp, String coun, String add1, String add2, String cit, String stat, String cod, String phon, String em, String comm) {
 		JavascriptExecutor je = (JavascriptExecutor) driver;
 		je.executeScript("window.scrollBy(0, 500)");
 			FirstName.sendKeys(fn);
