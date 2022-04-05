@@ -191,6 +191,7 @@ private WebDriver driver;
 			Email.sendKeys(em);
 			//Comment.sendKeys(comm);
 			Terms.click();
+			Terms.click();
 			Order.click();
 	}
 	
