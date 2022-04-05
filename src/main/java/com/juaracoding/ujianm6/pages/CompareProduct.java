@@ -38,14 +38,14 @@ private WebDriver driver;
 	@FindBy(id = "pa_color")
 	WebElement ListColor2;
 	
-	@FindBy(xpath = "//*[@id='pa_color']/option")
-	List<WebElement>OptionColor2;
+	@FindBy(id = "pa_color")
+	WebElement OptionColor2;
 	
 	@FindBy(id = "pa_size")
 	WebElement ListSize2;
 	
-	@FindBy(xpath = "//*[@id='pa_size']/option")
-	List<WebElement>OptionSize2;
+	@FindBy(id = "pa_size")
+	WebElement OptionSize2;
 	
 	@FindBy(css = "#noo-site > div.page_fullwidth > div:nth-child(3) > div > div.padding-stylebox.wpb_column.vc_column_container.vc_col-sm-12.vc_col-lg-7.vc_col-md-7.vc_hidden-sm > div > div > div > div.noo-sh-product-grid.woocommerce > div.noo-sh-product-html.columns_3.no_masonry.three.row.is-flex > div.noo-product-item.noo-product-sm-4.not_featured.post-1491.product.type-product.status-publish.has-post-thumbnail.product_cat-t-shirt.product_tag-t-shirt.product_tag-women.has-featured.instock.shipping-taxable.purchasable.product-type-variable > div > h3 > a")
 	WebElement Product3;
@@ -53,14 +53,14 @@ private WebDriver driver;
 	@FindBy(id = "pa_color")
 	WebElement ListColor3;
 
-	@FindBy(xpath = "//*[@id='pa_color']/option")
-	List<WebElement>OptionColor3;
+	@FindBy(id = "pa_color")
+	WebElement OptionColor3;
 
 	@FindBy(id = "pa_size")
 	WebElement ListSize3;
 	
-	@FindBy(xpath = "//*[@id='pa_size']/option")
-	List<WebElement>OptionSize3;
+	@FindBy(id = "pa_size")
+	WebElement OptionSize3;
 	
 	@FindBy(css = "#product-1497 > div.single-product-content > div.summary.entry-summary > a")
 	WebElement Compare;
@@ -125,77 +125,54 @@ private WebDriver driver;
 	@FindBy(id = "place_order")
 	WebElement Order;
 	
-	@FindBy(xpath = "//article[@id='post-7']/div/div/div/p")
+	@FindBy(css = "#post-7 > div > div > div > p.woocommerce-thankyou-order-received")
 	WebElement txtThankYou2;
 	
-	public void Order(int das, int col1, int siz1, int col2, int siz2) {
-		JavascriptExecutor je = (JavascriptExecutor) driver;
-		je.executeScript("window.scrollBy(0, 1000)");
-		Dashboard.get(das).click();
-		Browse.click();
-	tunggu();
-	je.executeScript("window.scrollBy(0, 1000)");
-	Product2.click();
-	je.executeScript("window.scrollBy(0, 1000)");
-	tunggu();
-	ListColor2.click();
-
-	List<Keys> OptionColor2 = new ArrayList<Keys>();
-	for(int i=0;i<col1;i++) {
-		OptionColor2.add(Keys.DOWN);
-	}
-	OptionColor2.add(Keys.ENTER);
-	CharSequence[] cs = OptionColor3.toArray(new CharSequence[OptionColor3.size()]);
-	Actions keyDown = new Actions(driver); keyDown.sendKeys(Keys.chord(cs)).perform();
-	
-	ListSize2.click();
-	List<Keys> OptionSize2 = new ArrayList<Keys>();
-	for(int i=0;i<siz1;i++) {
-		OptionSize2.add(Keys.DOWN);
-	}
-	OptionSize2.add(Keys.ENTER);
-	CharSequence[] cs2 = OptionColor3.toArray(new CharSequence[OptionColor3.size()]);
-	Actions keyDown2 = new Actions(driver); keyDown2.sendKeys(Keys.chord(cs2)).perform();
-	AddtoCart.click();
-	tunggu();
+	public void Order(String col1, String siz1, String col2, String siz2) {
 		logoHome.click();
 		tunggu();
-		je.executeScript("window.scrollBy(0, 1000)");
+	
+	scroll();
+	Product2.click();
+	scroll();
+	tunggu();
+	ListColor2.click();
+	OptionColor2.sendKeys(col1);
+	OptionColor2.sendKeys(Keys.ENTER);
+	tunggu();
+	ListSize2.click();
+	OptionSize2.sendKeys(siz1);
+	OptionSize2.sendKeys(Keys.ENTER);
+	AddtoCart.click();
+	tunggu();
+	logoHome.click();
+	tunggu();
+		
+		scroll();
 		Product3.click();
-		je.executeScript("window.scrollBy(0, 1000)");
+		scroll();
 		tunggu();
 		ListColor3.click();
-		List<Keys> OptionColor3 = new ArrayList<Keys>();
-		for(int i=0;i<col2;i++) {
-			OptionColor3.add(Keys.DOWN);
-		}
-		OptionColor3.add(Keys.ENTER);
-		CharSequence[] cs3 = OptionColor3.toArray(new CharSequence[OptionColor3.size()]);
-		Actions keyDown3 = new Actions(driver); keyDown3.sendKeys(Keys.chord(cs3)).perform();
-		
+		OptionColor3.sendKeys(col2);
+		OptionColor3.sendKeys(Keys.ENTER);
+		tunggu();
 		ListSize3.click();
-		List<Keys> OptionSize3 = new ArrayList<Keys>();
-		for(int i=0;i<siz2;i++) {
-			OptionSize3.add(Keys.DOWN);
-		}
-		OptionSize3.add(Keys.ENTER);
-		CharSequence[] cs4 = OptionSize3.toArray(new CharSequence[OptionSize3.size()]);
-		Actions keyDown4 = new Actions(driver); keyDown3.sendKeys(Keys.chord(cs4)).perform();
-		
+		OptionSize3.sendKeys(siz2);
+		OptionSize3.sendKeys(Keys.ENTER);
+		tunggu();
 		Compare.click();
 		tunggu();
-		je.executeScript("window.scrollBy(0, 1000)");
+		scroll();
 		Close.click();
 		AddtoCart.click();
 		tunggu();
-			logoHome.click();
-			tunggu();
+		logoHome.click();
+		tunggu();
 	
 	}
 	
-	public void submitOrder(String fn, String ln, String comp, String coun, String add1, String add2, String cit, String stat, String cod, String phon, String em, String comm) {
-		JavascriptExecutor je = (JavascriptExecutor) driver;
-		je.executeScript("window.scrollBy(0, 500)");
+	public void submitOrder(String fn, String ln, String comp, String coun, String add1, String add2, String cit, String stat, String cod, String phon, String em) {
+			scroll();
 			FirstName.sendKeys(fn);
 			LastName.sendKeys(ln);
 			Company.sendKeys(comp);
@@ -203,7 +180,7 @@ private WebDriver driver;
 			InputCountry.sendKeys(coun);
 			InputCountry.sendKeys(Keys.RETURN);
 			Address1.sendKeys(add1);
-			je.executeScript("window.scrollBy(0, 500)");
+			scroll();
 			Address2.sendKeys(add2);
 			City.sendKeys(cit);
 			ListState.click();
@@ -212,7 +189,7 @@ private WebDriver driver;
 			PostCode.sendKeys(cod);
 			Phone.sendKeys(phon);
 			Email.sendKeys(em);
-			Comment.sendKeys(comm);
+			//Comment.sendKeys(comm);
 			Terms.click();
 			Order.click();
 	}
@@ -223,10 +200,16 @@ private WebDriver driver;
 	
 	public static void tunggu() {
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public void scroll() {
+		JavascriptExecutor je = (JavascriptExecutor) driver;
+		je.executeScript("window.scrollBy(0, 1000)");
+		
 	}
 }

@@ -53,20 +53,20 @@ public class ConfigurationProperties {
 	@Value("${txtThankYou}")
 	private String txtThankYou;
 	
-	@Value("${das}")
-	private int das;
+//	@Value("${das}")
+//	private int das;
 	
 	@Value("${col1}")
-	private int col1;
+	private String col1;
 	
 	@Value("${siz1}")
-	private int siz1;
+	private String siz1;
 	
 	@Value("${col2}")
-	private int col2;
+	private String col2;
 	
 	@Value("${siz2}")
-	private int siz2;
+	private String siz2;
 	
 	@Value("${fn}")
 	private String fn;
@@ -101,8 +101,8 @@ public class ConfigurationProperties {
 	@Value("${em}")
 	private String em;
 	
-	@Value("${comm}")
-	private String comm;
+//	@Value("${comm}")
+//	private String comm;
 	
 	@Value("${txtThankYou}")
 	private String txtThankYou2;
@@ -158,43 +158,43 @@ public class ConfigurationProperties {
 		return txtThankYou;
 	}
 	
-	public int getDas() {
-		return das;
-	}
+//	public int getDas() {
+//		return das;
+//	}
+//
+//	public void setDas(int das) {
+//		this.das = das;
+//	}
 
-	public void setDas(int das) {
-		this.das = das;
-	}
-
-	public int getCol1() {
+	public String getCol1() {
 		return col1;
 	}
 
-	public void setCol1(int col1) {
+	public void setCol1(String col1) {
 		this.col1 = col1;
 	}
 	
-	public int getSiz1() {
+	public String getSiz1() {
 		return siz1;
 	}
 
-	public void setSiz1(int siz1) {
+	public void setSiz1(String siz1) {
 		this.siz1 = siz1;
 	}
 	
-	public int getCol2() {
+	public String getCol2() {
 		return col2;
 	}
 
-	public void setCol2(int col2) {
+	public void setCol2(String col2) {
 		this.col2 = col2;
 	}
 	
-	public int getSiz2() {
+	public String getSiz2() {
 		return siz2;
 	}
 
-	public void setSiz2(int siz2) {
+	public void setSiz2(String siz2) {
 		this.siz2 = siz2;
 	}
 	
@@ -286,13 +286,13 @@ public class ConfigurationProperties {
 		this.em = em;
 	}
 	
-	public String getComm() {
-		return comm;
-	}
-
-	public void setComm(String comm) {
-		this.comm = comm;
-	}
+//	public String getComm() {
+//		return comm;
+//	}
+//
+//	public void setComm(String comm) {
+//		this.comm = comm;
+//	}
 	
 	public String getTxtThankYou2() {
 		return txtThankYou;

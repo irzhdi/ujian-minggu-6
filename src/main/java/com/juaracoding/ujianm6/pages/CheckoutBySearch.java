@@ -85,7 +85,7 @@ private WebDriver driver;
 	@FindBy(id = "terms")
 	WebElement clickPlaceOrder;
 	
-	@FindBy(xpath = "//article[@id='post-7']/div/div/div/p")
+	@FindBy(css = "#post-7 > div > div > div > p.woocommerce-thankyou-order-received")
 	WebElement txtThankYou;
 	
 	public void submitSearch() {
@@ -98,7 +98,7 @@ private WebDriver driver;
 		String city = "Bekasi";
 		String postcode = "17117";
 		String phone = "081321037517"; 
-		String comments = "test order";
+		//String comments = "test order";
 			clickHome.click();
 			clickSearch.click();
 			inputSearch.sendKeys(search);
@@ -120,17 +120,15 @@ private WebDriver driver;
 			clickStateContainer.click();
 			inputPostcode.sendKeys(postcode);
 			inputPhone.sendKeys(phone);
-			inputComments.click();
-			inputComments.clear();
-			inputComments.sendKeys(comments);
+		//	inputComments.click();
+		//	inputComments.clear();
+		//	inputComments.sendKeys(comments);
 			
 			clickTerms.click();
 			clickTerms.click();
-		
+			tunggu();
 			clickPlaceOrder.click();
-		
-			
-			
+			tunggu();
 	}
 	
 	public String getTxtThankYou() {
