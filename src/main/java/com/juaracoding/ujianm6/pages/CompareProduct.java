@@ -62,14 +62,17 @@ private WebDriver driver;
 	@FindBy(id = "pa_size")
 	WebElement OptionSize3;
 	
-	@FindBy(css = "#product-1497 > div.single-product-content > div.summary.entry-summary > a")
+	@FindBy(xpath = "//*[@class='compare button']")
 	WebElement Compare;
 	
 	@FindBy(id = "cboxClose")
 	WebElement Close;
 	
-	@FindBy(css = "#product-1497 > div.single-product-content > div.summary.entry-summary > form > div > div.woocommerce-variation-add-to-cart.variations_button.woocommerce-variation-add-to-cart-enabled > button")
+	@FindBy(xpath = "//*[@id=\"product-1497\"]/div[1]/div[2]/form/div/div[2]/button")
 	WebElement AddtoCart;
+
+	@FindBy(xpath = "//*[@id=\"product-1491\"]/div[1]/div[2]/form/div/div[2]/button")
+	WebElement AddtoCart2;
 	
 	@FindBy(id = "nav-menu-item-cart")
 	WebElement Cart;
@@ -157,14 +160,15 @@ private WebDriver driver;
 		OptionColor3.sendKeys(Keys.ENTER);
 		tunggu();
 		ListSize3.click();
+		tunggu();
 		OptionSize3.sendKeys(siz2);
 		OptionSize3.sendKeys(Keys.ENTER);
 		tunggu();
 		Compare.click();
 		tunggu();
-		scroll();
 		Close.click();
-		AddtoCart.click();
+		tunggu();
+		AddtoCart2.click();
 		tunggu();
 		logoHome.click();
 		tunggu();
@@ -172,7 +176,10 @@ private WebDriver driver;
 	}
 	
 	public void submitOrder(String fn, String ln, String comp, String coun, String add1, String add2, String cit, String stat, String cod, String phon, String em) {
-			scroll();
+		Cart.click();	
+		scroll();
+		CheckOut.click();
+		tunggu();
 			FirstName.sendKeys(fn);
 			LastName.sendKeys(ln);
 			Company.sendKeys(comp);
@@ -189,8 +196,6 @@ private WebDriver driver;
 			PostCode.sendKeys(cod);
 			Phone.sendKeys(phon);
 			Email.sendKeys(em);
-			//Comment.sendKeys(comm);
-			Terms.click();
 			Terms.click();
 			Order.click();
 	}
